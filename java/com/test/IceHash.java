@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class IceHash {
 
-	static Map<Integer, Integer> hash = new HashMap<Integer, Integer>();//key is cost, value is number of its occurence 
+	static Map<Integer, Integer> hash = null;//key is cost, value is number of its occurence 
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -25,6 +25,7 @@ public class IceHash {
 	private static void printFlavourIndex(int[] costAry, int money) {
 		//one pass (n) using HashMap
 		//we will store price:index pair
+		hash = new HashMap<Integer, Integer>();
 		
 		int pos1=-1, pos2=-1;
 		for(int i = 0 ; i < costAry.length; i++) {
