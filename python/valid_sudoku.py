@@ -2,16 +2,15 @@
     https://www.interviewbit.com/problems/valid-sudoku/
 '''
 
-
 def isValidSudoku(A):
     rows = []
     columns = []
     blocks = []
 
     for i in range(9):
-        rows.append([0]*9)
-        columns.append([0]*9)
-        blocks.append([0]*9)
+        rows.append([False] * 9)
+        columns.append([False] * 9)
+        blocks.append([False] * 9)
 
     h = {
         (0,0) : 0,
@@ -34,21 +33,21 @@ def isValidSudoku(A):
             else:
                 val = int(val)-1
                 
-            if rows[r][val] == 1:
+            if rows[r][val]:
                 return 0
             else: 
-                rows[r][val] = 1
+                rows[r][val] = True 
                 
-            if columns[c][val] == 1:
+            if columns[c][val]:
                 return 0
             else:
-                columns[c][val] = 1
+                columns[c][val] = True
                 
             x = h[(r/3, c/3)]
-            if blocks[x][val] == 1:
+            if blocks[x][val]:
                 return 0
             else:
-                blocks[x][val] = 1
+                blocks[x][val] = True 
     return 1
 
 def test():
