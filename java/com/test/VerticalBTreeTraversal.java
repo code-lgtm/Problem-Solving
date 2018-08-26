@@ -58,6 +58,7 @@ Expected Output:
         n5.right = n7;
         n7.right = n8;
 
+        //Time complexity is O(n) - as all the nodes are visited only ones
         printVertical(n1);//n1 is the root
 
         /*
