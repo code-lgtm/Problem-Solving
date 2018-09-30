@@ -11,7 +11,7 @@ public class RodCutting_DP {
 
         System.out.println("Max Profit: "+ getMaxProfit(totalLength, pieces, prices));
     }
-
+// Time complexity: O (totalLength * pieces )
     private static int getMaxProfit(int totalLength, int[] pieces, int[] prices){
 
         int[][] profitMat = new int[prices.length + 1][totalLength+1];
