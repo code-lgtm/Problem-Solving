@@ -30,8 +30,9 @@ public class KSumPath_BTree {
 Output
 3 2
 3 1 1
-4 1 1 -1 4 1
--1 4 2 
+4 1
+1 -1 4 1
+-1 4 2
  */
 
         BNode one1 = new BNode(1);
@@ -79,9 +80,10 @@ Output
                         System.out.print(path.get(j)+" ");
                     }
                 }
+                System.out.println();
 
             }
-            System.out.println();
+
         }
 
         if(node.left != null) {
