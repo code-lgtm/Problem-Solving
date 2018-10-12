@@ -16,25 +16,15 @@ def convert(x, b):
     l = []
     while x >= b:
         r = x%b
-        if r >= 10:
-            l.append(c[r-10])
-        else:
-            l.append(str(x%b))
+        l.append(c[r-10] if r >= 10 else str(r))
         x = x/b
-    if x >= 10:
-        l.append(c[x-10])
-    else:
-        l.append(str(x))
+    l.append(c[x-10] if x >= 10 else str(x))
     return ''.join(l[::-1])
 
-squares = [i*i for i in range(1, 301)]
-
-
 N = int(fin.readline())
-
-if N != 10:
-    squares = [convert(x, N) for x in squares]
+squares = [convert(x*x, N) for x in range(1, 301)]
 
 for index, item in enumerate(squares):
     if ispalindrome(str(item)):
         fout.write(str(convert(index+1, N)) + " " + str(item) + "\n")
+fout.close()
