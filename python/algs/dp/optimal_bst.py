@@ -3,6 +3,8 @@
     which is optimal in terms of cost of lookup operations
 '''
 
+from ds.tree import BST
+
 def minimum_cost_matrix(keys, frequencies):
     nkeys = len(keys)
     A = [[(float("inf"), 0) for _ in range(nkeys)] for __ in range(nkeys)]
@@ -27,7 +29,23 @@ def minimum_cost(keys, frequencies):
 
 def minimum_cost_tree(keys, frequencies):
     A = minimum_cost_matrix(keys, frequencies)
-    
+    bst = BST()
+    create_optimal_tree(A, bst, keys, 0, len(keys)-1)
+    return bst.preorder()
 
-
-
+def create_optimal_tree(A, bst, keys, i, j):
+    if i > j:
+        return
+    elif i == j:
+        bst.insert(keys[i], None)
+    elif A[i][j][1] == i:
+        bst.insert(keys[i], None)
+        create_optimal_tree(A, bst, keys, i+1, j)
+    elif A[i][j][1] == j:
+        bst.insert(keys[j], None)
+        create_optimal_tree(A, bst, keys, i, j-1)
+    else:
+        r = A[i][j][1]
+        bst.insert(keys[r], None)
+        create_optimal_tree(A, bst, keys, i, r-1)
+        create_optimal_tree(A, bst, keys, r+1, j)

@@ -15,3 +15,4 @@ class TestBST(unittest.TestCase):
         self.assertTrue(bst.get(6) == 11)
         self.assertTrue(bst.get(15) == None)
         self.assertTrue(bst.height() == 3)
+        self.assertTrue(bst.preorder() == [5, 3, 2, 4, 8, 6, 9])

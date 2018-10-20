@@ -48,4 +48,19 @@ class BST:
             return 0
 
         return 1 + max(self.height_tree(x._left), self.height_tree(x._right))
+
+    def preorder(self):
+        l = []
+        return self.preorder_traversal(self._root, l)
+
+    def preorder_traversal(self, x, l):
+        if not x:
+            return l
+
+        l.append(x._key)
+    
+        self.preorder_traversal(x._left, l)
+        self.preorder_traversal(x._right, l)
+
+        return l
         
