@@ -2,7 +2,7 @@ package com.test;
 
 import java.util.Arrays;
 
-public class BoxStacking_DP {
+public class BoxStacking_DP { 
 /*
 Question: https://www.geeksforgeeks.org/box-stacking-problem-dp-22/
 Output:
