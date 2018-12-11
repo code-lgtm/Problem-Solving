@@ -28,7 +28,7 @@ public class ArrayToBst_IsValidBST {
             return true;
         }
 
-        if(cur.value >= min && cur.value <= max){
+        if(cur.value > min && cur.value < max){
            return isValid(cur.left, min, cur.value) && isValid(cur.right, cur.value, max);
         }
 
