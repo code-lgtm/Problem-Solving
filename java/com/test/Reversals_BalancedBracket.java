@@ -68,11 +68,7 @@ public class Reversals_BalancedBracket {
 
 
     static boolean isOpposite(char one, char two){
-        if (one == '{' && two == '}'){
-            return true;
-        }else{
-            return false;
-        }
+       return (one == '{' && two == '}');
     }
 
 }
