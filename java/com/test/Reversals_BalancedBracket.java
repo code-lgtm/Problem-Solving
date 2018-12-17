@@ -51,7 +51,7 @@ public class Reversals_BalancedBracket {
         }
 
         //now the aux will have something like }}{{{{ left , that is even number of closing brackets followed by even number of opening brackets
-        //so to balance this we need to reverse half of closing brackets and half of opening brackets - Please note we need to take the floor of close/2 and open/2 to deal with the cases lie }{{{
+        //so to balance this we need to reverse half of closing brackets and half of opening brackets - Please note we need to take the floor of close/2 and open/2 to deal with the cases lie }{{{ . This is equal to actually equal to (open+close)/2 + open%2
 
         int totalUnbalnced = aux.size();
         int open = 0;
