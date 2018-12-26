@@ -22,6 +22,7 @@ public class ArrayToBst_IsValidBST {
 
     }
 
+    //another method is - Do in order traversal and see of the array is sorted
     static boolean isValid(BNode cur, int min, int max){
 
         if(cur == null){
@@ -33,6 +34,21 @@ public class ArrayToBst_IsValidBST {
         }
 
         return false;
+
+
+    }
+
+    static boolean isValid2(BNode cur, int min, int max){
+
+        if(cur == null){
+            return true;
+        }
+
+        if(! (cur.value > min && cur.value < max) ){
+            return false;
+        }
+
+        return isValid(cur.left, min, cur.value) && isValid(cur.right, cur.value, max);
 
 
     }
