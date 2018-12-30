@@ -105,7 +105,7 @@ public class BTreeExterior {
     static void printExterior(BNode root){
         printLeft( root);
         printLeaves( root);
-       printRight( root);
+        printRight( root);
     }
 
 }
