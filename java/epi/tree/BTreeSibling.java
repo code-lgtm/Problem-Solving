@@ -62,6 +62,7 @@ public class BTreeSibling {
 
     }
 
+    //O(n) time and O(1) space
     static BNode getSibling(BNode cur){
         int height = 0;
         cur = cur.parent;
