@@ -80,7 +80,12 @@ Graph 2:
             }
         }
 
+/*
+Output:
+Cycle detected from: a : true
+Cycle detected from: e : false
 
+ */
 
     }
 
