@@ -24,7 +24,7 @@ Graph 1:
     >   > |
     b -> c -> e
 
-         */
+         */ 
 
         GNode a = new GNode('a');
         GNode b = new GNode('b');
