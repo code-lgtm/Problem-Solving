@@ -1,3 +1,5 @@
+# https://community.topcoder.com/stat?c=problem_statement&pm=6186&rd=9823
+
 import math
 from collections import deque
 
