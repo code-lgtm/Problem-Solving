@@ -1,4 +1,4 @@
-package epi;
+package epi.graph;
 
 import java.util.*;
 
