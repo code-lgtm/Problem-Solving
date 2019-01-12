@@ -28,7 +28,7 @@ public class ISBN_Cache_LRU {
         for(int i = 21; i <= 22; i++){
             add("ISBNXXXXXXX"+i, i*100);
         }
-        //remove("ISBNXXXXXXX21");
+        remove("ISBNXXXXXXX21");
 
         System.out.println("Iterating through cache");
         Iterator<KeyVal> itr = dq.iterator();
@@ -45,7 +45,6 @@ public class ISBN_Cache_LRU {
                 Price of ISBNXXXXXXX17: 1700
                 Iterating through cache
                 ISBNXXXXXXX22 2200
-                ISBNXXXXXXX21 2100
                 ISBNXXXXXXX20 2000
                 ISBNXXXXXXX19 1900
                 ISBNXXXXXXX18 1800
