@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class Duplicates {
     public static void main(String[] args){
-        int a = b = 0;
         int[] ip = {7,2,4,5,2,7,2,9,3,4,3,3,1,5};
        int n =  removeDuplicates(ip);
        for (int i = 0; i <= n; i++){
