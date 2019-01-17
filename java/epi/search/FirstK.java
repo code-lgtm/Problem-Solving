@@ -16,7 +16,7 @@ public class FirstK {
         if(min>max){
             return -1;
         }
-        int mid = (min+max)/2;
+        int mid = min+(max-max)/2;
         if (ip[mid] == k && (mid == 0 || ip[mid-1] != k)){// the previous number isn't k
             return mid;//found the index
         }else if(ip[mid] == k){// no need to go right , as the first occurence will be on the left
