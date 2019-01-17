@@ -9,7 +9,13 @@ public class IntSqRoot {
         System.out.println(intSqRoot(21, 0, 21));
         System.out.println(intSqRoot(30, 0, 30));
         System.out.println(intSqRoot(25000, 0, 25000));
-
+/*
+Output:
+4
+4
+5
+158
+ */
     }
 
     static int intSqRoot(int val, int min, int max){
