@@ -1,4 +1,4 @@
-package epi;
+package epi.search;
 
 //given a matrix sorted by row and column, find a given number in log(n+m) - this is better than n log m
 public class SearchSortedMatrix {
