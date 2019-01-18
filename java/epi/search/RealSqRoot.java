@@ -5,14 +5,14 @@ public class RealSqRoot {
     static int tolerance = 3;//that is tolerance till 0.001
     public static void main(String[] args) {
 
-        System.out.println(realSqRoot(21, 0, 21));
+        System.out.println(realSqRoot(21));
 //ouput: 4.582499999999996
     }
 
-    static double realSqRoot(int num, int min, int max){
+    static double realSqRoot(int num){
 
         double incr = 0.1d;
-        double sqRt = intSqRoot(num, min, max);//get the floor sq root
+        double sqRt = intSqRoot(num, 0, num);//get the floor sq root
         for(int i = 0 ; i <= 3; i++){//add the floating point part starting @ .1
             while (sqRt*sqRt <= num){//max 10 iterations here
                 sqRt += incr;
