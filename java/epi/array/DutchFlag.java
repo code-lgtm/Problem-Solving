@@ -13,6 +13,8 @@ public class DutchFlag {
         for (int i: ip){
             System.out.print(i+" ");
         }
+
+        //Output: 1 1 1 1 2 2 2 2 3 3 3 
     }
 
     public static void dutchFlagPartition(int[] ip, int pivot) {
