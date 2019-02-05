@@ -59,7 +59,7 @@ public class JumpStack {
             System.out.print(cur.data);
             cur.visited = true;
 
-           //STACY IS LIFO, SO WE ARE INSERTING NEXT FIRST THEN JUMP, WHERE AS IN RECURSSION ITS JUMP FIRST AND THEN NEXT
+           //STACK IS LIFO, SO WE ARE INSERTING NEXT FIRST THEN JUMP, WHERE AS IN RECURSSION ITS JUMP FIRST AND THEN NEXT
             stk.push(cur.next);
             stk.push(cur.jump);
 
