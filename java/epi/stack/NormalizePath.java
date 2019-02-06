@@ -28,23 +28,23 @@ public class NormalizePath {
                 if(dir.equals("..") && stk.size() == 0){// empty stack, so cant go to the parent dir
                     return null;
                 }else if(dir.equals("..")){
-                    stk.removeFirst();//dir up
+                    stk.removeLast();//dir up
                     continue;
                 }
 
-                stk.addFirst(dir+"/");
+                stk.addLast(dir+"/");
 
 
             }
         }
 
         if(path.startsWith("/")){
-            stk.addLast("/");//the first element on the path
+            stk.addFirst("/");//the first element on the path
         }
 
         StringBuffer normPath = new StringBuffer();
         while (!stk.isEmpty()){
-            normPath.append(stk.removeLast());
+            normPath.append(stk.removeFirst());
         }
         return normPath.toString();
     }
