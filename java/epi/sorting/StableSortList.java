@@ -31,6 +31,7 @@ public class StableSortList {
             sortedList = sortedList.next;
         }
 
+        //Output: 2 2 3 4 5 6 7 7 9 11 12 45
     }
 
     //Sort the list similar to merge sort
