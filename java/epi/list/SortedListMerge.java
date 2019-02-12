@@ -33,7 +33,7 @@ public class SortedListMerge {
 
         /*
         Output:
-        1 5 7 8 9 10
+        1 5 7 8 9 10 11
          */
     }
 
@@ -53,7 +53,14 @@ public class SortedListMerge {
             cur = cur.next;
         }
 
+        //Add the remaining elements
+        if(l1!= null){
+            cur.next = l1;
+        }
 
+        if (l2!= null){
+            cur.next = l2;
+        }
         return curRef.next;
 
     }
