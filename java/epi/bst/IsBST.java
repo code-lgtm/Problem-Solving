@@ -14,15 +14,28 @@ public class IsBST {
         int[] ar = {-1, 2, 3, 7, 8, 9, 50, 100};
 
         BNode root = getTree(ar, 0, ar.length - 1);
-        System.out.println(isBST(root));
+        System.out.println(isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
 
         root.right.right.value = -1;
-        System.out.println(isBST(root));
+        System.out.println(isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
 
         //Output: true
         //        false
     }
 
+
+    static boolean isBST(BNode cur, int min, int max){
+        if (cur == null){
+            return true;
+        }
+        if(cur.value <= min || cur.value >= max){
+            return false;
+        }
+
+        return isBST(cur.left, min, cur.value) && isBST(cur.right, cur.value, max);
+    }
+
+    /* //This logic doesnt work
     static boolean isBST(BNode cur){
         if(cur == null){
             return true;
@@ -38,7 +51,7 @@ public class IsBST {
 
         return isLeftBST && isRightBST;
     }
-
+*/
     static BNode getTree(int[] ip, int start, int end){
         if(start > end){
             return null;
