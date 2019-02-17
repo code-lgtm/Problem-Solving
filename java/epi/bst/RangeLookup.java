@@ -45,7 +45,7 @@ public class RangeLookup {
         for (BNode cur: matchingNodes){
             System.out.print(cur.value+" ");
         }
-
+//Output: 8 12 10 14 13
     }
 
     static void rangeLookup(BNode cur, int min, int max, List<BNode> matchingNodes){
