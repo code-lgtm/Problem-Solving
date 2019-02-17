@@ -37,6 +37,7 @@ public class ReconstructBSTPreorder {
         curIndex++;
 
         //at this point cur element is good to be created as current root, creating left and right children recursively
+        //CRITICAL: for pre order left call has to be before right call, because the left call was completed before the data was printed in the pre order
         BNode left = createBST(preOrder, min, curElement);
         BNode right = createBST(preOrder, curElement, max);
 
