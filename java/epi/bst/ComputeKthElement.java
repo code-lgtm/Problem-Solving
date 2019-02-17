@@ -26,6 +26,7 @@ public class ComputeKthElement {
     static double getkthElement(int k, int c){
         double kth = 0;
 
+        //Sorted set so that we can retrieve the smallest value while avoiding duplicates
         TreeSet<Element> elements = new TreeSet<>(new Comparator<Element>() {
             @Override
             public int compare(Element o1, Element o2) {
