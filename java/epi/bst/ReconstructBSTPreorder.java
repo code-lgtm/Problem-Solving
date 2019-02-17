@@ -21,6 +21,7 @@ public class ReconstructBSTPreorder {
         int[] preOrder = {43,23,37,29,31,41,47,53};
         BNode root = createBST(preOrder, Integer.MIN_VALUE, Integer.MAX_VALUE);
         printLevelOrder(root);
+        //Output: 43 23 47 37 53 29 41 31
     }
 
     static BNode createBST(int[] preOrder, int min, int max){
