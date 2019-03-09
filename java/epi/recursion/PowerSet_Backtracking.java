@@ -42,7 +42,7 @@ public class PowerSet_Backtracking {
         currentSelection.add(set[cur]);//select the current item
         computePowerSet(set, cur+1, powerSet, currentSelection);
         currentSelection.remove(currentSelection.size()-1);//unselect the last item
-        computePowerSet(set, cur+1, powerSet, currentSelection); // cumpute the powerset after unselection of last item
+        computePowerSet(set, cur+1, powerSet, currentSelection); // compute the powerset after unselection of last item
 
     }
 
