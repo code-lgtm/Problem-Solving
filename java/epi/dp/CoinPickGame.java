@@ -37,6 +37,7 @@ Player1 gets: 11, second gets: 4
 
         Score[][] auxScore = new Score[totalCoins][totalCoins];
 
+        //Initializing with 0 values
         for (int i=0; i<totalCoins; i++) {
             for (int j = 0; j < totalCoins; j++) {
                 auxScore[i][j] = new Score(0, 0);
