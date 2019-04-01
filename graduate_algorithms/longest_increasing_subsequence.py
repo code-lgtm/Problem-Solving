@@ -53,48 +53,47 @@ def lis(input):
   seq.reverse()
   return seq
 
-def bin_srch(input, start, end, index, num, seq_indexes, prev):
-  while start <= end:
-    if start == end:
-      if input[seq_indexes[start]] >= num:
-        seq_indexes[start] = index
-        if start > 0:
-          prev[index] = seq_indexes[start-1]
-      return
+def bin_srch(arr, l, r, seq_indexes, key, incr=True):
+  cmpfunc = max if incr else min
 
-    mid = (start+end)/2
-    mid_val = input[seq_indexes[mid]] 
-    if mid_val < num:
-      start = mid+1
+  while r-l:
+    mid = (l+r)/2
+    mid_val = arr[seq_indexes[mid]]
+    
+    if key==mid_val:
+       r = mid
+       break
+    elif cmpfunc(key, mid_val) == key:
+      l = mid+1
     else:
-      end = mid
+      r = mid
+  return r
 
-def lis_optimized(input):
-  n = len(input)
+def lis_optimized(arr):
+  n = len(arr)
   max_length = 0
   prev = [-1 for _ in range(n)]
   seq_indexes = [-1 for _ in range(n)]
-  seq_indexes[0] = 0
 
-  for i, num in enumerate(input):
-    if not i:
-      continue
-    if num > input[seq_indexes[max_length]]:
+  for i, num in enumerate(arr):
+    if num > arr[seq_indexes[max_length]]:
       max_length += 1
       seq_indexes[max_length] = i
       prev[i] = seq_indexes[max_length-1]
     else:
-      bin_srch(input, 0, max_length, i, num, seq_indexes, prev)
+      r = bin_srch(arr, 0, max_length, seq_indexes, num)
+      seq_indexes[r] = i
+      if r:
+        prev[i] = seq_indexes[r-1]
 
   seq = []
   i = seq_indexes[max_length]
   while i >= 0:
-    seq.append(input[i])
+    seq.append(arr[i])
     i = prev[i]
 
   seq.reverse()
   return seq
-    
 
 def test():
   assert lis_optimized([5, 2, 8, 6, 3, 6, 9, 7]) == [2, 3, 6, 7]
