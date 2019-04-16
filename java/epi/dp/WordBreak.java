@@ -6,14 +6,16 @@ import java.util.Set;
 
 //Check if a given string can be composed by concatenating dictionary words - Time O(n^3) space O(n^2) where n is the size of the input
 //Explanation: https://www.youtube.com/watch?v=WepWFGxiwRs
+//Update: checkConcatDict2 solves it in O(n^2 * w) and O(n) space - w is the size of the max word
 public class WordBreak {
+   static int maxWordLen = 10;
     public static  void main(String[] args){
         String input2 = "iamy";
         Set<String> dict2 = new HashSet<>();
         dict2.add("i");
         dict2.add("am");
         dict2.add("x");
-        System.out.println("Is string dictionary concatenated: "+checkConcatDict(input2, dict2)+" \n");
+        System.out.println("Is string dictionary concatenated: "+checkConcatDict(input2, dict2)+" \n"+checkConcatDict2(input2, dict2)+" \n");
 
         //bed bat hand beyond
         String input = "BEDBATHANDBEYOND";
@@ -22,7 +24,7 @@ public class WordBreak {
         dict.add("BAT");
         dict.add("HAND");
         dict.add("BEYOND");
-        System.out.println("Is string dictionary concatenated: "+checkConcatDict(input, dict));
+        System.out.println("Is string dictionary concatenated: "+checkConcatDict(input, dict)+" \n"+checkConcatDict(input, dict));
 
         /*
         Output:
@@ -74,7 +76,7 @@ Is string dictionary concatenated: true
             }
         }
 
-         printMat(decomposeAux);
+        printMat(decomposeAux);
         return decomposeAux[0][decomposeAux[0].length-1];//the solution is on the top right corner
     }
 
@@ -85,5 +87,31 @@ Is string dictionary concatenated: true
             }
             System.out.println();
         }
+    }
+
+    static boolean checkConcatDict2(String ip, Set<String> dict){
+
+        boolean[] aux = new boolean[ip.length()];
+
+
+        for (int i = 0 ; i < ip.length(); i++){
+            String sub = ip.substring(0, i+1);
+            if (dict.contains(sub)){
+                aux[i] = true;
+            }else {//check if the pattern sub can be broken into two words which are dictionary
+
+                for (int j = i-1; j>= 0; j--){
+                    String sub2 = sub.substring(j, i+1);
+                    if (sub2.length() > maxWordLen){//a word with this length cant exist in the dictionary
+                        break;
+                    }
+                    if (aux[j] && dict.contains(sub2)){//check if there is a substring which can which starts at j and ends at i (including both) and it exists in a dictionary
+                        aux[i] = true;
+                        break;
+                    }
+                }
+            }
+        }
+        return aux[aux.length-1];
     }
 }
