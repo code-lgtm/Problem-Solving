@@ -9,7 +9,7 @@ fin = open("edit_distance.in", "r")
 N = int(fin.readline().rstrip("\n"))
 
 def diff(A, B, i, j):
-  return 0 if A[i]==B[j] else 1
+  return 0 if A[i-1]==B[j-1] else 1
 
 def edit_distance(A, B):
   M = [[0 for _ in range(len(B)+1)] for _ in range(len(A)+1)]
