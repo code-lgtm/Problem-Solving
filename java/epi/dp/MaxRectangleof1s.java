@@ -16,6 +16,8 @@ public class MaxRectangleof1s {
 
         int maxArea = getMaxArea(mat);
         System.out.println("max area: "+maxArea);
+
+        //max area: 8
     }
 
     static int getMaxArea(int[][] mat){
@@ -52,7 +54,7 @@ public class MaxRectangleof1s {
             }else{//keep poping until the stk is empty or we get an element smaller than ith element
                 int curTop = stk.pop();
                 int tempArea;
-                if (stk.isEmpty()){//this is last element, area is simply it's height * length of the array
+                if (stk.isEmpty()){//this is last element, area is simply it's height * the current value of i
                     tempArea = heights[curTop]*i;
                 }else{///this is the min element from i to curTop, that is the rectangle from curTop to i will have atleast curTop height, width will be i - curtop - 1
                     tempArea = heights[curTop] *(i - curTop -1);
