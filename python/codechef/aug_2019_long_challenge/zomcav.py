@@ -8,12 +8,10 @@ for _ in range(T):
     for i in range(N):
         j = i-C[i]
         k = i+C[i]+1
-        if j < 0:
-            j = 0
-        if k > N:
-            k = N
+        if j < 0: j = 0
+        if k > N: k = N
         l[j] += 1
-        l[k] -=1
+        l[k] -= 1
 
     l.pop()
     for i in range(1, N):
@@ -21,7 +19,5 @@ for _ in range(T):
 
     H.sort()
     l.sort()
-    if H==l:
-        print("YES")
-    else:
-        print("NO")
+    if H==l: print("YES")
+    else: print("NO")
