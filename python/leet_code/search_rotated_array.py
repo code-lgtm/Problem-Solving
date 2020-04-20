@@ -12,18 +12,15 @@ Your algorithm's runtime complexity must be in the order of O(log n).
 
 def findPivot(nums, start, end):
   if start > end: return -1
+        
   n = len(nums)-1
-  mid = start+ (end-start)//2
-  if (end-start)%2: mid += 1
-            
-  if mid < 0 or mid > len(nums)-1: return -1
-  if (nums[mid-1] < nums[mid]) and (nums[mid] > nums[(mid+1)%n]): return mid
-  if start==end: 
-    if not start:
-      if nums[0] > nums[n]: return 0
-      return -1
-  if nums[mid] > nums[0]: return findPivot(nums, mid+1, end)
-  else: return findPivot(nums, 0, mid-1)
+  mid = (start+end)//2
+  # Is this the place wherr rotation is happening.
+  if (nums[mid-1] > nums[mid]) and (nums[mid] < nums[(mid+1)%n]): return mid
+      
+  # Check right half if number is greater than first element. Otherwise go left
+  if nums[mid] >= nums[0]: return self.findPivot(nums, mid+1, end)
+  else: return self.findPivot(nums, 0, mid-1)
         
 def bin_search(nums, start, end, target):
   if start > end: return -1
@@ -36,14 +33,16 @@ def bin_search(nums, start, end, target):
     
 def search(nums, target):
   if len(nums) == 0: return -1
-  if nums[0] <= nums[-1]: return bin_search(nums, 0, len(nums)-1, target)
+  n = len(nums)-1
         
-  pivot = findPivot(nums, 0, len(nums)-1)
-  if pivot < 0: return -1
+  # Input array is already sorted. Do a simple binary search
+  if nums[0] <= nums[-1]: return self.bin_search(nums, 0, n, target) 
+  pivot = self.findPivot(nums, 0, len(nums)-1)
         
+  # Search in left or right sorted array depending on value of target wrt first or last element
   if target == nums[pivot]: return pivot
-  elif target > nums[-1]: return bin_search(nums, 0, pivot-1, target)
-  else: return bin_search(nums, pivot+1, len(nums)-1, target)
+  elif target > nums[-1]: return self.bin_search(nums, 0, pivot-1, target)
+  else: return self.bin_search(nums, pivot+1, n, target)
 
 
 
