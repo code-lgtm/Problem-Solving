@@ -1,3 +1,5 @@
+# https://www.codechef.com/SEPT20B/problems/ADAMAT
+
 T = int(input())
 
 for _ in range(T):
