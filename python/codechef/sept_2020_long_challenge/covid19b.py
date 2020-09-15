@@ -20,7 +20,7 @@ for _ in range(T):
   for i in range(N-1):
     for j in range(i+1, N):
       if V[i] > V[j]:
-        t = (j-i)*60/(V[i]-V[j])
+        t = (j-i)*60/(V[i]-V[j]) # Multiplied by 60 to ensure integer tim
         x = i*60 + V[i] * t
         infections[(t, x)].append(i)
         infections[(t, x)].append(j)
@@ -30,8 +30,7 @@ for _ in range(T):
     infected[i] = True
     
     for key in sorted(infections.keys()):
-      spread = any(map(lambda i : infected[i], infections[key]))
-      if spread:
+      if any(map(lambda i : infected[i], infections[key])):
         for athlete in infections[key]:
           infected[athlete] = True
     total_infections = sum(infected)
