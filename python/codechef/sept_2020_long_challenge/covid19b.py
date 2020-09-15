@@ -20,7 +20,7 @@ for _ in range(T):
   for i in range(N-1):
     for j in range(i+1, N):
       if V[i] > V[j]:
-        t = (j-i)*60/(V[i]-V[j]) # Multiplied by 60 to ensure integer tim
+        t = (j-i)*60/(V[i]-V[j]) # Multiplied by 60 to ensure integer time
         x = i*60 + V[i] * t
         infections[(t, x)].append(i)
         infections[(t, x)].append(j)
