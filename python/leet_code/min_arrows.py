@@ -27,7 +27,7 @@ def findMinArrowShots(points) -> int:
       # Calculate the new strongest cluster line that subsequent points need to overlap
       # with to be part of the cluster
       point = (max(points[j][0], point[0]), min(points[j][1], point[1]))
-        j += 1
+      j += 1
     i = j
             
   return marrows
